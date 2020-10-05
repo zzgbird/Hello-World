@@ -1,0 +1,30 @@
+
+# 1 查找和删除重复行
+sort file |uniq
+sort file |uniq -u
+sort file |uniq -d
+
+# 统计
+sort file | uniq -c
+
+find -not -empty -type f -printf "%s\n" | sort -rn |uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate | cut -b 36- >result.txt
+
+# 2. ubuntu sudo apt-get install xxx 报错
+E: The package needs to be reinstalled, but I cant find an archive for it [duplicate] 
+
+A:sudo rm /var/lib/apt/lists/* -vf
+  sudo apt-get update
+The program 'java' can be found in the following packages:
+
+# 3. sublim 支持中文
+https://www.jianshu.com/p/bf05fb3a4709
+https://github.com/lyfeyaj/sublime-text-imfix
+
+# 4. 碱基序列拆分: 
+echo "ATGGTGACTCCTACATGA" | sed 's/T/U/g' | fold -w 3
+
+# 5 C or Cpp run
+# win10 cmd 编码设置 chcp 65001
+
+# 编译命令
+gcc -o test.exe test2.c List2.c -fexec-charset=gbk -finput-charset=UTF-8
